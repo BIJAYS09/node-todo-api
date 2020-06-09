@@ -7,6 +7,7 @@ var {Todo} = require('./models/todo');
 var {User} = require('./models/user'); 
 
 var app = express();
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
@@ -47,8 +48,8 @@ app.get('/todos/:id',(req,res)=>{
     }).catch((err)=> res.sendStatus(400));
 });
 
-app.listen(3000,()=>{
-   console.log('Connected tp port 3000');
+app.listen(port,()=>{
+   console.log(`Connected tp port ${port}`);
 });
 
 module.exports = {app};
